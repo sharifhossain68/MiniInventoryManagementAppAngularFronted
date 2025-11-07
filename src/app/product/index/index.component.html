@@ -1,0 +1,62 @@
+<!-- <p>index works!</p> -->
+<div class="container">
+
+    <h1>Product List</h1>
+
+    
+
+    <a href="#" routerLink="/product/create/" class="btn btn-success">Create New Product</a>
+
+      
+
+    <table class="table table-striped">
+
+        <thead>
+
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>StockQuantity</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th class="text-center" width="250px">Action</th>
+
+         
+
+              </tr>
+
+        </thead>
+
+        <tbody>
+
+              <tr *ngFor="let product of products">
+
+                <td>{{ product.productId }}</td>
+
+                <td>{{ product.name}}</td>
+
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.stockQuantity }}</td>
+                <td>{{ product.createdAt |date:"dd MMMM yy"}}</td>
+                <td>{{ product.updatedAt | date:"dd MMMM yy"}}</td>
+
+                <td>
+
+                    <a href="#" [routerLink]="['/product/', product.productId,'view'] " class="btn btn-info">View</a>
+
+                  <a href="#" [routerLink]="['/product/', product.productId, 'edit']" class="btn btn-primary">Edit</a>
+
+                  <button type="button" (click)="delete(product.productId)" class="btn btn-danger">Delete</button>
+
+                </td>
+
+              </tr>
+
+        </tbody>
+
+    </table>
+
+ </div>

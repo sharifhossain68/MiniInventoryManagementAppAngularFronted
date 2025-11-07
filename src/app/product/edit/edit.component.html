@@ -1,0 +1,112 @@
+<div class="container">
+
+    <h1>Update Product</h1>
+
+   
+
+    <a href="#" routerLink="/product/index" class="btn btn-primary">Back</a>
+
+          
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+    
+
+        <div class="form-group">
+
+            <label for="name">Name:</label>
+
+            <input 
+
+                formControlName="name"
+
+                id="name" 
+
+                type="text" 
+
+                [(ngModel)]="product.name"
+
+                class="form-control">
+
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Product name is required.</div>
+
+            </div>
+
+        </div>
+
+           
+
+        <div class="form-group">
+
+            <label for="description">Description</label>
+
+            <textarea 
+
+                formControlName="description"
+
+                id="description" 
+
+                type="text" 
+
+                [(ngModel)]="product.description"
+
+                class="form-control">
+
+            </textarea>
+
+        </div>
+
+    <div class="form-group">
+
+            <label for="price">Price:</label>
+
+            <input 
+
+                formControlName="price"
+
+                id="price" 
+
+                type="text" 
+
+                [(ngModel)]="product.price"
+
+                class="form-control">
+
+            <div *ngIf="f['price'].touched && f['price'].invalid" class="alert alert-danger">
+
+                <div *ngIf="f['price'].errors && f['price'].errors['required']">Product price is required.</div>
+
+            </div>
+
+        </div>
+         <div class="form-group">
+
+            <label for="stockQuantity">Stock Quantity:</label>
+
+            <input 
+
+                formControlName="stockQuantity"
+
+                id="stockQuantity" 
+
+                type="text" 
+
+                [(ngModel)]="product.stockQuantity"
+
+                class="form-control">
+
+            <div *ngIf="f['stockQuantity'].touched && f['stockQuantity'].invalid" class="alert alert-danger">
+
+                <div *ngIf="f['stockQuantity'].errors && f['stockQuantity'].errors['required']">Product stock quantity is required.</div>
+
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+
+    </form>
+
+</div>

@@ -1,0 +1,51 @@
+<!-- <p>index works!</p> -->
+<div class="container">
+
+    <h1>Order List</h1>
+
+    <a href="#" routerLink="/order/create/" class="btn btn-success">Create New Order</a>
+
+    <table class="table table-striped">
+        <thead>
+
+              <tr>
+                <th>Id</th>
+                <th>Customer Name</th>
+                <th>order Date</th>
+                <th>Total Amount</th>
+                <th>status</th>
+                <th class="text-center" width="250px">Action</th>
+              </tr>
+
+        </thead>
+
+        <tbody>
+
+              <tr *ngFor="let order of orders">
+
+                <td>{{ order.orderId }}</td>
+
+                <td>{{ order.customerName}}</td>
+
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.stockQuantity }}</td>
+                <td>{{ product.createdAt |date:"dd MMMM yy"}}</td>
+                <td>{{ product.updatedAt | date:"dd MMMM yy"}}</td>
+
+                <td>
+
+                    <!-- <a href="#" [routerLink]="['/product/', product.productId,'view'] " class="btn btn-info">View</a>
+
+                  <a href="#" [routerLink]="['/product/', product.productId, 'edit']" class="btn btn-primary">Edit</a> -->
+
+                  
+                </td>
+
+              </tr>
+
+        </tbody>
+
+    </table>
+
+ </div>

@@ -14,6 +14,8 @@ import { CreateComponent } from './product/create/create.component';
 import { EditComponent } from './product/edit/edit.component';
 import { OrderViewComponent } from './order/view/view.component';
 import { OrderCreateComponent } from './order/create/create.component';
+import { OrderIndexComponent } from './order/index/index.component';
+
   
 
 export const routes: Routes = [
@@ -29,6 +31,9 @@ export const routes: Routes = [
       { path: 'product/create', component: CreateComponent },
 
       { path: 'product/:productId/edit', component: EditComponent } ,
+        { path: '*', redirectTo: 'order/index', pathMatch: 'full'},
+        { path: 'order', redirectTo: 'order/index', pathMatch: 'full'},
+   { path: 'order/index', component: OrderIndexComponent },
         { path: 'order', redirectTo: 'order/index', pathMatch: 'full'},
       { path: 'order/create', component: OrderCreateComponent },
       { path: 'order/:productId/view', component: OrderViewComponent },

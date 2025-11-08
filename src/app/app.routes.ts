@@ -29,7 +29,9 @@ export const routes: Routes = [
       { path: 'product/create', component: CreateComponent },
 
       { path: 'product/:productId/edit', component: EditComponent } ,
+        { path: 'order', redirectTo: 'order/index', pathMatch: 'full'},
       { path: 'order/create', component: OrderCreateComponent },
       { path: 'order/:productId/view', component: OrderViewComponent },
+      
 
   ];

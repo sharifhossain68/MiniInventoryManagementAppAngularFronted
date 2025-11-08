@@ -1,13 +1,3 @@
-//import { Injectable } from '@angular/core';
-
-//Injectable({
-// providedIn: 'root'
-//)
-//xport class OrderService {
-//
-// constructor() { }
-//
-
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -16,7 +6,7 @@ import {  Observable, throwError } from 'rxjs';
 
 import { catchError } from 'rxjs/operators';
 
-import { Product } from '../models/product';
+import { Order } from '../models/order';
 
 @Injectable({
 
@@ -37,9 +27,6 @@ export class OrderService {
     })
 
   }
-
-   
-
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<any> {
@@ -53,10 +40,22 @@ export class OrderService {
     )
 
   }
+  
+  getAllOrder(): Observable<any> {
 
-  create(product:Product): Observable<any> {
+    return this.httpClient.get(this.apiURL + '/Orders/')
 
-    return this.httpClient.post(this.apiURL + '/Products/', JSON.stringify(product), this.httpOptions)
+    .pipe(
+
+      catchError(this.errorHandler)
+
+    )
+
+  }
+
+  create(order:Order): Observable<any> {
+
+    return this.httpClient.post(this.apiURL + '/Orders/', JSON.stringify(order), this.httpOptions)
 
     .pipe(
 
@@ -68,16 +67,16 @@ export class OrderService {
 
   find(id:number): Observable<any> {
 
-    var data = this.httpClient.get(this.apiURL + '/Products/' + id).pipe( catchError(this.errorHandler))
+    var data = this.httpClient.get(this.apiURL + '/Orders/' + id).pipe( catchError(this.errorHandler))
     console.log(data);
  
     return data
 
   }
 
-  update(id:number, product:Product): Observable<any> {
+  update(id:number, order:Order): Observable<any> {
 
-    return this.httpClient.put(this.apiURL + '/Products/' + id, JSON.stringify(product), this.httpOptions)
+    return this.httpClient.put(this.apiURL + '/Orders/' + id, JSON.stringify(order), this.httpOptions)
 
     .pipe( 
 
@@ -90,7 +89,7 @@ export class OrderService {
 
   delete(id:number){
 
-    return this.httpClient.delete(this.apiURL + '/Products/' + id, this.httpOptions)
+    return this.httpClient.delete(this.apiURL + '/Orders/' + id, this.httpOptions)
 
   
 

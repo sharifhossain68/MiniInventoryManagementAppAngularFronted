@@ -29,13 +29,14 @@ export class OrderIndexComponent {
 
   ngOnInit(): void {
 
-    this.orderService.getAll().subscribe((data: Order[])=>{
+    this.orderService.getAllOrder().subscribe((data: Order[])=>{
 
       this.orders = data;
 
       console.log(this.orders);
 
     })  
+    
 
   }
 

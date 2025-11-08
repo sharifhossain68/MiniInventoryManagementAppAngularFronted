@@ -11,7 +11,7 @@
               <tr>
                 <th>Id</th>
                 <th>Customer Name</th>
-                <th>order Date</th>
+                <th>Order Date</th>
                 <th>Total Amount</th>
                 <th>Status</th>
                 <th class="text-center" width="250px">Action</th>
@@ -21,9 +21,9 @@
 
         <tbody>
 
-              <tr *ngFor="let order of orders">
+              <tr *ngFor="let order of orders let i=index ">
 
-                <td>{{ order.orderId }}</td>
+                <td>{{ i+1 }}</td>
 
                 <td>{{ order.customerName}}</td>
 
@@ -34,9 +34,9 @@
 
                 <td>
 
-                    <!-- <a href="#" [routerLink]="['/product/', product.productId,'view'] " class="btn btn-info">View</a>
+                     <a href="#" [routerLink]="['/order/', order.orderId,'view'] " class="btn btn-primary">Oder Details</a>
 
-                  <a href="#" [routerLink]="['/product/', product.productId, 'edit']" class="btn btn-primary">Edit</a> -->
+                 <!-- <a href="#" [routerLink]="['/product/', product.productId, 'edit']" class="btn btn-primary">Edit</a> -->
 
                   
                 </td>

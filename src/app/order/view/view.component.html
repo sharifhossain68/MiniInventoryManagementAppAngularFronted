@@ -1,1 +1,47 @@
-<p>view works!</p>
+<div class="container">
+
+    <h1>Order Details</h1>
+
+  
+
+    <a href="#" routerLink="/order/index" class="btn btn-primary">Back</a>
+ <table class="table table-striped">
+        <thead>
+
+              <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Order Date</th>
+                <th>Total Amount</th>
+                <th>Qty</th>
+                <th class="text-center" width="250px">Action</th>
+              </tr>
+
+        </thead>
+
+        <tbody>
+
+              <tr *ngFor="let orderitem of orderitem    let i=index ">
+
+                <td>{{ i+1 }}</td>
+
+                <td>{{getProductName(orderitem.productId) }}</td>
+
+                <td>{{ orderitem.quantity}}</td>
+            
+              </tr>
+
+        </tbody>
+
+    </table>
+
+
+</div>
+<div>
+  <button type="button" (click)="Completed(orderitem[0].orderId)" class="btn btn-primary">Completed</button>
+
+</div>
+<div> <button type="button" (click)="Cancelled(orderitem[0].orderId)" class="btn btn-danger">Cancelled</button></div>
+<div>
+    
+</div>

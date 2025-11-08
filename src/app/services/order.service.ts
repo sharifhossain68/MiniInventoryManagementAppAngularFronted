@@ -52,7 +52,19 @@ export class OrderService {
     )
 
   }
+  
+  
+  getAllItems(id:number): Observable<any> {
 
+    return this.httpClient.get(this.apiURL + '/Orders/'+id)
+
+    .pipe(
+
+      catchError(this.errorHandler)
+
+    )
+
+  }
   create(order:Order): Observable<any> {
 
     return this.httpClient.post(this.apiURL + '/Orders/', JSON.stringify(order), this.httpOptions)
@@ -74,9 +86,9 @@ export class OrderService {
 
   }
 
-  update(id:number, order:Order): Observable<any> {
+  update(id:number, statusId :number): Observable<any> {
 
-    return this.httpClient.put(this.apiURL + '/Orders/' + id, JSON.stringify(order), this.httpOptions)
+    return this.httpClient.put(this.apiURL + '/Orders/' + id, JSON.stringify(statusId), this.httpOptions)
 
     .pipe( 
 

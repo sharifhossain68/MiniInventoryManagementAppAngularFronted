@@ -36,7 +36,7 @@ export const routes: Routes = [
    { path: 'order/index', component: OrderIndexComponent },
         { path: 'order', redirectTo: 'order/index', pathMatch: 'full'},
       { path: 'order/create', component: OrderCreateComponent },
-      { path: 'order/:productId/view', component: OrderViewComponent },
+      { path: 'order/:orderId/view', component: OrderViewComponent },
       
 
   ];

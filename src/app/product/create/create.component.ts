@@ -66,7 +66,7 @@ export class CreateComponent {
 
          console.log('Product created successfully!');
 
-         this.router.navigateByUrl('product/index');
+         this.router.navigateByUrl('/product/index');
 
     })
 

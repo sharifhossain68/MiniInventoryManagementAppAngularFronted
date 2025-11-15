@@ -84,7 +84,7 @@ export class OrderViewComponent {
   }
   Cancelled(id :number){
 
-    this.orderService.update( id,2).subscribe((res:any) => {
+    this.orderService.delete( id).subscribe((res:any) => {
 
          console.log('Cancelled successfully!');
 
@@ -93,5 +93,6 @@ export class OrderViewComponent {
     })
 
   }
+  
 
 }
